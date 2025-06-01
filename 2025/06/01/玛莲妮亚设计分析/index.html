@@ -19,23 +19,23 @@
   <meta name="author" content="Andy Lee">
   <meta name="keywords" content="">
   
-    <meta name="description" content="CS2战斗设计拆解一、设计理念 作为一款PC端FPS游戏，CS2以战术射击为核心玩法，围绕CT和T两个阵营在不同地图上的多回合战斗展开。我认为CS2的战斗体验，主要包含3个核心方向： 1、搭建战斗舞台：在精密设计的箱庭地图中，引导玩家控制地图、与敌方产生碰撞交锋。让每一次对峙都在“公平可读”的前提下产生多样化博弈。 2、管理战斗资源：基于经济系统设计的各具特色的枪械、道具，支持玩家采取各种战斗策略">
+    <meta name="description" content="《艾尔登法环》玛莲妮亚Boss战设计分析一、设计理念与思路 《艾尔登法环》作为一款名声赫赫的ARPG游戏，其中“女武神”玛莲妮亚的Boss战饱受玩家赞誉。隐藏在地图深处的惊喜感、远超其他Boss的难度、华美的战斗表现以及丰富的战斗交互使其以91.1%得票率获选最难Boss。 接下来我将分别从设计者和玩家角度分析玛莲妮亚Boss战的战斗设计理念和思路，并分析玛莲妮亚的战斗AI设计  二、设计者视角“">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CS2">
-<meta property="og:url" content="http://example.com/2025/05/20/CS2/index.html">
+<meta property="og:title" content="玛莲妮亚设计分析">
+<meta property="og:url" content="http://example.com/2025/06/01/%E7%8E%9B%E8%8E%B2%E5%A6%AE%E4%BA%9A%E8%AE%BE%E8%AE%A1%E5%88%86%E6%9E%90/index.html">
 <meta property="og:site_name" content="Welttttt的时光花海">
-<meta property="og:description" content="CS2战斗设计拆解一、设计理念 作为一款PC端FPS游戏，CS2以战术射击为核心玩法，围绕CT和T两个阵营在不同地图上的多回合战斗展开。我认为CS2的战斗体验，主要包含3个核心方向： 1、搭建战斗舞台：在精密设计的箱庭地图中，引导玩家控制地图、与敌方产生碰撞交锋。让每一次对峙都在“公平可读”的前提下产生多样化博弈。 2、管理战斗资源：基于经济系统设计的各具特色的枪械、道具，支持玩家采取各种战斗策略">
+<meta property="og:description" content="《艾尔登法环》玛莲妮亚Boss战设计分析一、设计理念与思路 《艾尔登法环》作为一款名声赫赫的ARPG游戏，其中“女武神”玛莲妮亚的Boss战饱受玩家赞誉。隐藏在地图深处的惊喜感、远超其他Boss的难度、华美的战斗表现以及丰富的战斗交互使其以91.1%得票率获选最难Boss。 接下来我将分别从设计者和玩家角度分析玛莲妮亚Boss战的战斗设计理念和思路，并分析玛莲妮亚的战斗AI设计  二、设计者视角“">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/CS2/bg.png">
-<meta property="article:published_time" content="2025-05-20T13:50:28.000Z">
-<meta property="article:modified_time" content="2025-05-27T16:52:35.008Z">
+<meta property="og:image" content="http://example.com/img/Elden/index.png">
+<meta property="article:published_time" content="2025-06-01T13:50:28.000Z">
+<meta property="article:modified_time" content="2025-06-01T17:56:48.233Z">
 <meta property="article:author" content="Andy Lee">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/img/CS2/bg.png">
+<meta name="twitter:image" content="http://example.com/img/Elden/index.png">
   
   
   
-  <title>CS2 - Welttttt的时光花海</title>
+  <title>玛莲妮亚设计分析 - Welttttt的时光花海</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -184,13 +184,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/CS2/bg.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/Elden/BG.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="CS2"></span>
+            <span id="subtitle" data-typed-text="玛莲妮亚设计分析"></span>
           
         </div>
 
@@ -201,8 +201,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-05-20 21:50" pubdate>
-          2025年5月20日 晚上
+        <time datetime="2025-06-01 21:50" pubdate>
+          2025年6月1日 晚上
         </time>
       </span>
     
@@ -213,7 +213,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2k 字
+          2.1k 字
         
       </span>
     
@@ -270,66 +270,47 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">CS2</h1>
+            <h1 id="seo-header">玛莲妮亚设计分析</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="CS2战斗设计拆解"><a href="#CS2战斗设计拆解" class="headerlink" title="CS2战斗设计拆解"></a>CS2战斗设计拆解</h1><h2 id="一、设计理念"><a href="#一、设计理念" class="headerlink" title="一、设计理念"></a>一、设计理念</h2><ul>
-<li>作为一款PC端FPS游戏，CS2以战术射击为核心玩法，围绕CT和T两个阵营在不同地图上的多回合战斗展开。我认为CS2的战斗体验，主要包含3个核心方向：<br><img src="/img/CS2/%E5%9B%BE%E7%89%871.png" srcset="/img/loading.gif" lazyload></li>
-<li>1、搭建战斗舞台：在精密设计的箱庭地图中，引导玩家控制地图、与敌方产生碰撞交锋。让每一次对峙都在“公平可读”的前提下产生多样化博弈。</li>
-<li>2、管理战斗资源：基于经济系统设计的各具特色的枪械、道具，支持玩家采取各种战斗策略，取得战斗优势。让“买枪／买道具”不仅是准备阶段，更是战术博弈的延续。</li>
-<li>3、强化战斗决策：高枪械伤害和高爆头收益带来的极短的TTK，放大了玩家决策的风险与收益。通过瞬间决策 → 长期学习 → 心流体验链条，让玩家能迅速理解高爆头回报的“风险承诺”，并在不断博弈中获得成长快感。</li>
+                <h1 id="《艾尔登法环》玛莲妮亚Boss战设计分析"><a href="#《艾尔登法环》玛莲妮亚Boss战设计分析" class="headerlink" title="《艾尔登法环》玛莲妮亚Boss战设计分析"></a>《艾尔登法环》玛莲妮亚Boss战设计分析</h1><h2 id="一、设计理念与思路"><a href="#一、设计理念与思路" class="headerlink" title="一、设计理念与思路"></a>一、设计理念与思路</h2><ul>
+<li>《艾尔登法环》作为一款名声赫赫的ARPG游戏，其中“女武神”玛莲妮亚的Boss战饱受玩家赞誉。隐藏在地图深处的惊喜感、远超其他Boss的难度、华美的战斗表现以及丰富的战斗交互使其以91.1%得票率获选最难Boss。</li>
+<li>接下来我将分别从设计者和玩家角度分析玛莲妮亚Boss战的战斗设计理念和思路，并分析玛莲妮亚的战斗AI设计</li>
 </ul>
-<h2 id="二、宏观战斗体验的循环"><a href="#二、宏观战斗体验的循环" class="headerlink" title="二、宏观战斗体验的循环"></a>二、宏观战斗体验的循环</h2><ul>
-<li>作为一款PVP游戏，当游玩CS2爆破模式时，玩家被赋予了CT&#x2F;T阵营身份，得到一个简单直接的动机：爆破&#x2F;防爆，基于这一首要目标，玩家可通过多种路径获得正向反馈，比如击杀全部敌人、通过道具信息取得优势逐个击破、一波精妙的战术配合反败为胜、在仅剩自己时上演英雄主义赢下残局······</li>
-<li>而在射击类游戏里，最本质的游戏体验便是进行风险与收益并存的决策，无论是点位选取、投掷道具还是索敌开火，都是一系列决策行为。为此，CS2设计了一个环环相扣的战斗循环：<br> <img src="/img/CS2/%E5%9B%BE%E7%89%872.png" srcset="/img/loading.gif" lazyload></li>
-<li>1.控制地图：占领有利点、封锁通道</li>
-<li>2.取得信息：通过脚步、道具贺枪声，获知推测敌方战术安排、人员分布。</li>
-<li>3.进行决策：评估战斗优劣势，采取战斗&#x2F;避战决策。</li>
-<li>4.战斗击杀：在优势时主动开火，获得击杀进而控制地图。</li>
-<li>5．（全程）使用道具：在整个循环中辅助进行，既是循环的基石也是循环的手段。</li>
-</ul>
-<h2 id="三、微观枪械战斗体验拆解"><a href="#三、微观枪械战斗体验拆解" class="headerlink" title="三、微观枪械战斗体验拆解"></a>三、微观枪械战斗体验拆解</h2><h3 id="1-短TTK："><a href="#1-短TTK：" class="headerlink" title="1.短TTK："></a>1.短TTK：</h3><p><img src="/img/CS2/%E5%9B%BE%E7%89%873.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="二、设计者视角“战斗的背后”"><a href="#二、设计者视角“战斗的背后”" class="headerlink" title="二、设计者视角“战斗的背后”"></a>二、设计者视角“战斗的背后”</h2><p> <img src="/img/Elden/%E5%9B%BE%E7%89%871.png" srcset="/img/loading.gif" lazyload><br>从设计者的角度，也就是战斗中“不可见”的部分，Boss战是一个设立目标-赋予能力-搭建挑战-呈现结果的系统。</p>
 <ul>
-<li>CS2平均TTK在250ms左右，与人类平均反应时间300ms相近，这代表掌握敌人位置时能够抢先造成击杀，俗称抓“Timing”，强化了合理的战术与决策对射击的影响。</li>
+<li>设立目标：在玛莲妮亚Boss战中，设计者设立的目标是在战斗中保证褪色者HP&gt;0且将玛莲妮亚的HP归零；</li>
+<li>赋予能力：为了让玩家实现这一目标，设计师赋予褪色者能力和资源，包含8种属性、3种装备（武器、防具、护符）、3种技能（战灰、法术、祷告）和各类道具Buff。</li>
+<li>搭建挑战：接下来需要围绕褪色者的能力，搭建对应的挑战来提供用武之地。褪色者推进至圣域时，具备高等级高属性，结合玛莲妮亚碎片君王的设定，需要设计一场高难度的挑战。所以玛莲妮亚具有高攻击力和高攻击欲望，招式迅猛难以格挡闪避，战场则是一片无限制的空旷平地，给予两个人形角色决斗空间。</li>
+<li>呈现结果：在褪色者的能力资源与玛莲妮亚高难度的挑战碰撞下，将会产生两种结果：褪色者战胜玛莲妮亚，目标得以实现，玩家获得奖励继续前进；或是褪色者死亡，回到祝福点重新调整能力资源，再次挑战。</li>
 </ul>
-<h3 id="2-“静止-移动”状态机："><a href="#2-“静止-移动”状态机：" class="headerlink" title="2.“静止-移动”状态机："></a>2.“静止-移动”状态机：</h3><p><img src="/img/CS2/%E5%9B%BE%E7%89%874.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="三、玩家视角“战斗的体验”"><a href="#三、玩家视角“战斗的体验”" class="headerlink" title="三、玩家视角“战斗的体验”"></a>三、玩家视角“战斗的体验”</h2><p> <img src="/img/Elden/%E5%9B%BE%E7%89%872.png" srcset="/img/loading.gif" lazyload><br>从玩家体验的角度，也就是战斗中“可见”的部分，每一次和Boss战斗，玩家都在反复进行一系列的学习行为：问题出现-思考解法-做出尝试-得到反馈。以玩家面对玛莲妮亚进入二阶段释放“猩红艾奥尼亚”为例：</p>
 <ul>
-<li>“停稳-瞄准-射击”这一序列行为，与现实中的枪械使用相仿。区别于APEX的高机动性与瞄哪打哪，CS2只有在玩家移动速度低于70单位&#x2F;s时子弹散步是可控的，角色存在一个“移动-静止”的状态机，这个状态机对于CS2围绕道具展开的爆破攻防意义重大，试想一下如果移动射击可以同时进行：两个CT守着A包点，这时5个T冲进来一边开枪一边移动，在交叉火力下CT毫无还手之力。</li>
-<li>“静止-移动”状态机的设计很好地平衡了T集合进攻时的人数优势，因为CT更多处于“静止”架枪，而T需要进攻更多处于“移动状态”，这就赋予了CT天然的防守优势；这时就是道具大有作为的时刻了，使用闪光弹等道具可以破坏CT的“静止”状态，转变为T的进攻优势。</li>
+<li>问题出现：玛莲妮亚跃至高空，身上散发红色光效，开始蓄力。一个问题摆在玩家面前，要如何处理这个蓄力招式？</li>
+<li>思考解法：玩家结合自身攻防手段和玛莲妮亚的特点，开始思考解决方法：玛莲妮亚韧性条较低，可以考虑使用攻击打断→玛莲妮亚位于高空，只能使用远程攻击→玩家携带的“岩石球”法术具有远程、高削韧的特性</li>
+<li>做出尝试：根据上述思考，玩家释放“岩石球”法术，尝试通过攻击打断玛莲妮亚的蓄力</li>
+<li>得到反馈：“岩石球”命中玛莲妮亚，但玛莲妮亚蓄力没有被打断，继续释放“猩红艾奥尼亚”向玩家飞落，并爆开大范围红莲花对玩家造成大量伤害和积累猩红腐败。玩家得到反馈：“猩红艾奥尼亚”无法被打断，是一个向前释放、大范围高伤害且附带异常效果的招式。</li>
 </ul>
-<h3 id="3-玩家战斗行为序列："><a href="#3-玩家战斗行为序列：" class="headerlink" title="3.玩家战斗行为序列："></a>3.玩家战斗行为序列：</h3><p> <img src="/img/CS2/%E5%9B%BE%E7%89%875.png" srcset="/img/loading.gif" lazyload></p>
+<p>经过一次的系列学习，玩家下一次面对“猩红艾奥尼亚”的问题，思考的解法将会变成通过闪避或跑动离开招式范围→做出向玛莲妮亚身后闪避的尝试→得到成功闪避“猩红艾奥尼亚”这一反馈。这样玩家就完成了一次学习循环，从战斗中获得满足感和成就感。</p>
+<h2 id="四、玛莲妮亚AI逻辑设计"><a href="#四、玛莲妮亚AI逻辑设计" class="headerlink" title="四、玛莲妮亚AI逻辑设计"></a>四、玛莲妮亚AI逻辑设计</h2><p>根据解包获得的代码逆向工程，玛莲妮亚丰富多样的招式、出其不意的变招，源于玛莲妮亚（约3000行）远超艾尔登之兽（约750行）的复杂AI逻辑。<br>如何让玛莲妮亚具有智慧？不妨把一场战斗比作辩论：<br> <img src="/img/Elden/%E5%9B%BE%E7%89%873.png" srcset="/img/loading.gif" lazyload></p>
 <ul>
-<li>1.移动与急停：掩体的存在，意味着玩家必须要进行移动，才能看到敌人的具体位置；当玩家发现敌人时，需要进行先将移动速度降低至70单位&#x2F;s以下，可以通过下蹲、反向移动来快速降低速度。</li>
-<li>2.瞄准：玩家停止后，需要进行一个手眼协调的定位循环：判断准星移动方向——移动准星——重复判断和移动——准星与敌人重合——停止移动准星。</li>
-<li>3.击发：瞄准后，按下左键开火。通过模拟真实开火：枪械的抖动、枪口火焰喷发、子弹射出、发出枪响，给予玩家即时反馈。之后枪械产生后坐力，使镜头抖动和准星上移。</li>
-<li>4.弹道：子弹从枪口射出后，记录移动距离计算伤害衰减，若穿过墙体还会进行穿透力衰减，在命中敌人前结算距离和穿透力衰减。</li>
-<li>5.命中：子弹碰撞敌人的HitBox，判定HitBox部位计算伤害倍率、击穿护甲结算护甲衰减，最终对敌人造成伤害。</li>
-<li>6.反馈：仿真反馈：敌人受击后喷溅血液、产生细微的命中音效。物理反馈：移动中的敌人移动速度会减慢。击杀反馈：敌人死亡后播放响亮的击杀音效，杀敌UI计数增加。爆头反馈：敌人头部溅射出高亮火花、并播放清脆敲击音效。</li>
-<li>上述六个序列行为循环进行，在造成击杀前玩家根据反馈重新移动和瞄准，构成了玩家每次对枪时的战斗体验。</li>
+<li>她首先具备一些知识，也就是移动、闪避和各式攻击，这些Act动作就像她读过的一本本书一样储备在脑中，随时提取使用。</li>
+<li>玛莲妮亚辩论中讲述输出的观点，就是战斗中采取的一系列行为。</li>
+<li>所以玛莲妮亚具有智慧的关键，便在于从知识储备（动作储备）到输出观点（行为序列）之间，玛莲妮亚根据自身条件的思考表达，和根据对方行为的批判反驳，这一智能过程。这就是战斗策划负责设计调整的AI部分，让玛莲妮亚适时安排自主计划，并根据褪色者的行为安排交互计划，于是便能“有智慧”地运用动作储备，做出及时对抗的行为序列。</li>
 </ul>
-<h2 id="四、战斗元素的设计"><a href="#四、战斗元素的设计" class="headerlink" title="四、战斗元素的设计"></a>四、战斗元素的设计</h2><h3 id="1-玩家属性"><a href="#1-玩家属性" class="headerlink" title="1.玩家属性"></a>1.玩家属性</h3><ul>
-<li>100点生命值：</li>
-<li>护甲和头盔：护甲和头盔可以显著减少身体各部位受到攻击的伤害，主要作用是保证高经济方（有甲）对低经济方（无甲）进行枪械战斗时具有极大优势。<br>移动速度：受手持武器种类的影响，武器越轻移速越快，持刀可获得最大速度（250单位&#x2F;s），比持狙约快1倍，当玩家需要快速转移时，可采取换刀移动的决策，但要面临遭遇敌人被动的风险。</li>
+<p> 接下来详细拆分玛莲妮亚动作储备-逻辑计划-行为序列的过程：<br>  <img src="/img/Elden/%E5%9B%BE%E7%89%874.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="Act动作储备："><a href="#Act动作储备：" class="headerlink" title="Act动作储备："></a>Act动作储备：</h3><ul>
+<li>玛莲妮亚具备30个动作，用于应对几乎所有情况。用于移动闪避的转向、左右滑步、后撤步、冲刺、起跳；用于近距离攻击的挥砍、回旋踢、上撩斩击、下砸；用于远程距离攻击的前突刺、分身斩击突刺、回旋斩；用于打断褪色者回复或防御的抓取投技；用于造成高伤害的水鸟乱舞、猩红艾奥尼亚。</li>
 </ul>
-<h3 id="2-武器分类"><a href="#2-武器分类" class="headerlink" title="2.武器分类"></a>2.武器分类</h3><p> <img src="/img/CS2/%E5%9B%BE%E7%89%876.png" srcset="/img/loading.gif" lazyload></p>
-<h3 id="3-道具分类"><a href="#3-道具分类" class="headerlink" title="3.道具分类"></a>3.道具分类</h3><ul>
-<li>烟雾弹：理论上50%风险50%收益的道具，作用是阻断视野，对于控制地图有着无可替代的作用，结合战术使用可以无限放大收益。</li>
-<li>闪光弹：主动型控图道具，作用是致盲面对闪光弹的玩家，用于在可能的对枪战斗前取得主动。</li>
-<li>手榴弹：主动型伤害道具，用于得知敌人位置时，先手削减敌人血量。</li>
-<li>燃烧瓶：被动型伤害道具，用于拖延敌人或是阻断敌人的补枪衔接。</li>
-<li>诱饵弹：信息型道具，用于误导敌方，给予敌方错误信息。</li>
+<h3 id="Logic逻辑计划："><a href="#Logic逻辑计划：" class="headerlink" title="Logic逻辑计划："></a>Logic逻辑计划：</h3><ul>
+<li>按照褪色者是否与玛莲妮亚进行交互，可以分为自主计划和交互计划，战斗中两者同时发生，彼此交织。<br><img src="/img/Elden/%E5%9B%BE%E7%89%875.png" srcset="/img/loading.gif" lazyload></li>
+<li>自主计划：假设褪色者是一个木桩，玛莲妮亚也需要根据自身情况来思考对策，这就是自主计划。首先每一个动作都具有CD，避免玛莲妮亚对着木桩反复横跳这种搞笑情况；然后根据自身情况和客观条件对不同动作赋予权重，比如自身HP较高时，攻击类行动权重较大，与木桩距离较远时，远距离攻击行动和移动行动的权重较大，以此类推安排出所有情况下的不同动作权重；此外还需要对一些特殊情况进行权重调整，例如木桩位于玛莲妮亚身后时，排除攻击动作，优先转向移动动作；最后进行动作的触发，通常使用动作权重和取一随机数的方式，按概率选出动作，添加至后续行为序列。<br><img src="/img/Elden/%E5%9B%BE%E7%89%876.png" srcset="/img/loading.gif" lazyload></li>
+<li>交互计划：一些褪色者的行为会打断自主计划，如玛莲妮亚被击倒，玩家喝药回复，这时玛莲妮亚需要取消原先计划，制订新计划来响应玩家的行为，这就是交互计划。首先褪色者的行为引发了交互条件，比如褪色者击倒玛莲妮亚、褪色者喝药回复、褪色者处于射击状态；然后这些行为会打断玛莲妮娅，需要清空原先制定的行动序列，比如起跳时被击落，原先的起跳后下砸动作取消；接下来需要重新调整动作权重，比如被击倒后，褪色者通常会趁机靠近攻击，所以当距离小时调大近距离攻击和移动的权重，玛莲妮亚起身后释放回旋踢，并快速后撤拉开距离；最后根据调整后的权重，同样地按概率选出动作，添加至后续行为序列。</li>
 </ul>
-<h2 id="五、枪械设计分析："><a href="#五、枪械设计分析：" class="headerlink" title="五、枪械设计分析："></a>五、枪械设计分析：</h2><h3 id="1-TTK计算："><a href="#1-TTK计算：" class="headerlink" title="1.TTK计算："></a>1.TTK计算：</h3><ul>
-<li>开第一枪后，子弹全部命中，击杀敌人所需要的时间。TTK越短，枪械理论强度越高。设第K发子弹将击杀对手，则TTK&#x3D;（K-1）*射速。</li>
-<li>TTK极大程度上决定了玩家的战斗体验，相比于其他FPS游戏，CS2的TTK平均在250ms左右，这种短TTK一能放大玩家决策的风险和收益，鼓励玩家在优势情况下瞄准再开火；二能够增加偶然性（运气）事件，缩小大部分玩家瞄准水平之间的差距，允许个人英雄主义式胜利的发生。</li>
-</ul>
-<h3 id="2-枪械伤害构成："><a href="#2-枪械伤害构成：" class="headerlink" title="2.枪械伤害构成："></a>2.枪械伤害构成：</h3><ul>
-<li>基础伤害*射速——穿透衰减、距离衰减——护甲衰减、受击部位。<br> <img src="/img/CS2/%E5%9B%BE%E7%89%877.png" srcset="/img/loading.gif" lazyload></li>
-</ul>
-<h3 id="3-后座力、弹匣容量"><a href="#3-后座力、弹匣容量" class="headerlink" title="3.后座力、弹匣容量"></a>3.后座力、弹匣容量</h3><ul>
-<li>后座力的设计符合枪械的物理现实，也是玩家成长的一大方式。通过压枪控制后座力，让子弹始终射向敌人是一名CS2玩家必须掌握的技能。<br>除了体验玩家的成长，后座力也是用于枪械平衡的重要属性：相比低伤害枪械，高伤害枪械往往伴随着高后座力，增加其上手难度和学习成本，也增加对枪中因失误压不住枪被击杀的风险。</li>
+<h3 id="Action行为序列："><a href="#Action行为序列：" class="headerlink" title="Action行为序列："></a>Action行为序列：</h3><ul>
+<li>当玛莲妮亚一个接一个地完成计划、添加动作后，这些动作便需要玛莲妮亚按顺序做出外显行为，也就是行为序列。行为序列中的动作是连贯的、组合的，比如起跳后接下砸或突刺，主要通过自主计划添加，但能随时被交互计划打断并改变，如此一来玛莲妮亚的出招就变得丰富多样，并且实时与褪色者交互变化，成为一个极具战斗经验、见招拆招的高级AI。</li>
 </ul>
 
                 
@@ -348,8 +329,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>CS2</div>
-      <div>http://example.com/2025/05/20/CS2/</div>
+      <div>玛莲妮亚设计分析</div>
+      <div>http://example.com/2025/06/01/玛莲妮亚设计分析/</div>
     </div>
     <div class="license-meta">
       
@@ -361,7 +342,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年5月20日</div>
+          <div>2025年6月1日</div>
         </div>
       
       
@@ -393,18 +374,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/06/01/%E7%8E%9B%E8%8E%B2%E5%A6%AE%E4%BA%9A%E8%AE%BE%E8%AE%A1%E5%88%86%E6%9E%90/" title="玛莲妮亚设计分析">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">玛莲妮亚设计分析</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/05/08/Game-Analysis/" title="《GTAV》资源循坏拆解">
-                        <span class="hidden-mobile">《GTAV》资源循坏拆解</span>
+                      <a href="/2025/05/20/CS2/" title="CS2">
+                        <span class="hidden-mobile">CS2</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
