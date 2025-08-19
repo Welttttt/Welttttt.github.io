@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>UE个人战斗Demo《时与空》</title>
+    <link href="/2025/08/19/UEDemo/"/>
+    <url>/2025/08/19/UEDemo/</url>
+    
+    <content type="html"><![CDATA[<h1 id="UE5个人战斗Demo《时与空》"><a href="#UE5个人战斗Demo《时与空》" class="headerlink" title="UE5个人战斗Demo《时与空》"></a>UE5个人战斗Demo《时与空》</h1><h2 id="视频演示"><a href="#视频演示" class="headerlink" title="视频演示"></a>视频演示</h2><iframe    width="800"     height="450"    src="//player.bilibili.com/player.html?isOutside=true&aid=115050245260745&bvid=BV1PXYxzUEY4&cid=31784108127&p=1"     scrolling="no"     border="0"     frameborder="no"     framespacing="0"     allowfullscreen="true"> </iframe><h2 id="设计文档"><a href="#设计文档" class="headerlink" title="设计文档"></a>设计文档</h2><ul><li><a href="https://bcnj98ewpt2c.feishu.cn/wiki/IPfQw8pztizjazkWyFocb8wSn90?from=from_copylink">https://bcnj98ewpt2c.feishu.cn/wiki/IPfQw8pztizjazkWyFocb8wSn90?from=from_copylink</a><br><img src="/img/UEDemo/Design.png"></li></ul><h2 id="玩法设计"><a href="#玩法设计" class="headerlink" title="玩法设计"></a>玩法设计</h2><ul><li>角色设定：拥有时间之力的玩家对战拥有空间之力的Boss</li><li>核心机制：时间充能、双攻击模式、时间加速、减速与回溯<br><img src="/img/UEDemo/Loop.png"></li><li>战斗循环：双剑模式持续攻击获取充能，消耗充能切换大剑模式，使用高伤害和冲击力快速削减敌人血量，在恰 当时机弹刀获取充能点，消耗充能点数释放终结技造成大量伤害，并维持大剑模式。</li></ul><h2 id="功能实现"><a href="#功能实现" class="headerlink" title="功能实现"></a>功能实现</h2><ul><li>玩家3C：角色Locomotion使用动画蓝图状态机，攻击连段和技能招式使用GAS系统进行管理，招式运镜使用CameraShake和摄像机关卡序列实现，大剑解放技播放关卡序列实现。</li><li>战斗机制：攻击和技能参数通过表格配置，技能触发、CD和战斗资源通过GameplayAbility和GameplayEffect管理，时间加速技能通过调整骨骼网格体动画播放率实现，闪避时停的特效使用后期处理材质、调整敌人时间膨胀实现，大剑模式弹反在敌人攻击时发射盒体检测，触发切换特写镜头，时缓后角色弹刀检测敌我武器的碰撞，大剑终结技使用关卡序列实现。<br><img src="/img/UEDemo/Boss.png"></li><li>敌人行为树设计：敌人行为参数通过表格配置，最优先监听敌人是否破韧，随后监听攻击CD，等待攻击时根据Boss阶段、与玩家距离和玩家行为，调整各个行为的权重；能够攻击时，根据权重和CD选择行为释放。</li></ul><h2 id="表现资源"><a href="#表现资源" class="headerlink" title="表现资源"></a>表现资源</h2><ul><li>大部分资源直接使用了Fab的内容，残影材质根据b站教程制作并调整参数，大剑蓄力攻击和终结技使用ControlRig手K了一下。</li></ul><p>从七月初到八月中旬，用了一个半月从零自学UE并实现这个Demo，从玩法设计到视听表现再到功能实现，基本上也算是熟悉了战斗的相关内容。虽然很多地方都很粗糙，以后会继续打磨优化。总之，希望你玩得开心。</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>25CiGA作品——策划</title>
     <link href="/2025/06/30/2025CiGA/"/>
     <url>/2025/06/30/2025CiGA/</url>
